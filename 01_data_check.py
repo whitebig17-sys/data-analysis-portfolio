@@ -179,8 +179,35 @@ order_items = pd.read_csv(data_path + r'\order_items.csv')
 # print(order_items['product_id'].isin(products['product_id']).value_counts())
 # print(order_items['user_id'].isin(users['user_id']).value_counts())
 
-print(order_items['quantity'].describe())
-print((order_items['quantity'] <= 0).sum())
+# print(order_items['quantity'].describe())
+# print((order_items['quantity'] <= 0).sum())
 
-print(order_items['item_price'].describe())
-print((order_items['item_price'] <= 0).sum())
+# print(order_items['item_price'].describe())
+# print((order_items['item_price'] <= 0).sum())
+
+# =========================
+# reviews.csv
+# =========================
+
+reviews = pd.read_csv(data_path + r'\reviews.csv')
+
+# print(reviews.columns)
+# print(reviews.dtypes)
+# print(reviews.isnull().sum())
+# print(reviews.duplicated().sum())
+
+# print(reviews['review_id'].duplicated().sum())
+# print(reviews['review_id'].str.len().value_counts())
+
+# print(reviews['product_id'].isin(products['product_id']).value_counts())
+# print(reviews['user_id'].isin(users['user_id']).value_counts())
+# print(reviews['order_id'].isin(orders['order_id']).value_counts())
+
+print(reviews['rating'].value_counts().sort_index())
+
+print(reviews['review_text'].str.strip().eq('').sum())
+
+review_date = pd.to_datetime(reviews['review_date'], errors='coerce')
+print(review_date.isnull().sum())
+print(review_date.min())
+print(review_date.max())
