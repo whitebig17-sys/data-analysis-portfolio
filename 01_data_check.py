@@ -92,8 +92,41 @@ users = pd.read_csv(data_path + r'\users.csv')
 # print(users['signup_date'].head(10))
 # print(users['signup_date'].isnull().sum())
 
-signup_date = pd.to_datetime(users['signup_date'], errors='coerce')
-print(signup_date.isnull().sum())
-print(signup_date.min())
-print(signup_date.max())
-print(signup_date.dtype)
+# signup_date = pd.to_datetime(users['signup_date'], errors='coerce')
+# print(signup_date.isnull().sum())
+# print(signup_date.min())
+# print(signup_date.max())
+# print(signup_date.dtype)
+
+# =========================
+# products.csv
+# =========================
+
+products = pd.read_csv(data_path + r'\products.csv')
+# print(products.columns)
+# print(products.dtypes)
+# print(products.isnull().sum())
+# print(products.duplicated().sum())
+
+# print(products['price'].describe())
+# print(products['rating'].describe())
+
+# print((products['price'] <= 0).sum())
+# print(products.nlargest(10, 'price'))
+
+# print(products['category'].value_counts())
+# print(products.groupby('category')['price'].mean())
+
+# print(products['product_id'].duplicated().sum())
+# print(products['product_id'].str.len().value_counts())
+
+# print(products['product_name'].isnull().sum())
+# print(products['product_name'].duplicated().sum())
+# print(products['product_name'].str.strip().eq('').sum())
+
+# print(products['brand'].isnull().sum())
+# print(products['brand'].duplicated().sum())
+# print(products['brand'].str.strip().eq('').sum())
+
+name_check = products.groupby('product_name')['product_id'].nunique()
+print(name_check[name_check > 1])
