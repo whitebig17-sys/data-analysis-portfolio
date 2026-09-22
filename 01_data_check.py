@@ -159,4 +159,28 @@ orders = pd.read_csv(data_path + r'\orders.csv')
 # print(orders['user_id'].isin(users['user_id']).value_counts())
 
 # print(orders['order_id'].str.len().value_counts())
-print(orders.groupby('order_status')['total_amount'].describe())
+# print(orders.groupby('order_status')['total_amount'].describe())
+
+# =========================
+# order_items.csv
+# =========================
+
+order_items = pd.read_csv(data_path + r'\order_items.csv')
+
+# print(order_items.columns)
+# print(order_items.dtypes)
+# print(order_items.isnull().sum())
+# print(order_items.duplicated().sum())
+
+# check_total = order_items['quantity'] * order_items['item_price']
+# print((check_total - order_items['item_total']).abs().describe())
+
+# print(order_items['order_id'].isin(orders['order_id']).value_counts())
+# print(order_items['product_id'].isin(products['product_id']).value_counts())
+# print(order_items['user_id'].isin(users['user_id']).value_counts())
+
+print(order_items['quantity'].describe())
+print((order_items['quantity'] <= 0).sum())
+
+print(order_items['item_price'].describe())
+print((order_items['item_price'] <= 0).sum())
