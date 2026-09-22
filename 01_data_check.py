@@ -57,6 +57,7 @@ data_path = r'C:\Users\FM_pc\Desktop\E-commerce_dataset'
 # =========================
 
 users = pd.read_csv(data_path + r'\users.csv')
+
 # print(users.columns)
 # print(users.dtypes)
 # print(users.isnull().sum())
@@ -103,6 +104,7 @@ users = pd.read_csv(data_path + r'\users.csv')
 # =========================
 
 products = pd.read_csv(data_path + r'\products.csv')
+
 # print(products.columns)
 # print(products.dtypes)
 # print(products.isnull().sum())
@@ -128,5 +130,33 @@ products = pd.read_csv(data_path + r'\products.csv')
 # print(products['brand'].duplicated().sum())
 # print(products['brand'].str.strip().eq('').sum())
 
-name_check = products.groupby('product_name')['product_id'].nunique()
-print(name_check[name_check > 1])
+# name_check = products.groupby('product_name')['product_id'].nunique()
+# print(name_check[name_check > 1])
+
+# =========================
+# orders.csv
+# =========================
+
+orders = pd.read_csv(data_path + r'\orders.csv')
+
+# print(orders.columns)
+# print(orders.dtypes)
+# print(orders.isnull().sum())
+# print(orders.duplicated().sum())
+
+# print(orders['order_id'].duplicated().sum())
+
+# print(orders['order_date'].head())
+# order_date = pd.to_datetime(orders['order_date'], errors='coerce')
+# print(order_date.isnull().sum())
+# print(order_date.min())
+# print(order_date.max())
+
+# print(orders['order_status'].value_counts())
+# print(orders['total_amount'].describe())
+# print((orders['total_amount'] <= 0).sum())
+
+# print(orders['user_id'].isin(users['user_id']).value_counts())
+
+# print(orders['order_id'].str.len().value_counts())
+print(orders.groupby('order_status')['total_amount'].describe())
