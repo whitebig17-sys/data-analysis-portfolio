@@ -6,8 +6,9 @@ data_path = r'C:\Users\FM_pc\Desktop\E-commerce_dataset'
 # events.csv
 # =========================
 
-# df = pd.read_csv(data_path + '\events.csv')
+df = pd.read_csv(data_path + '\events.csv')
 
+# print(df.head(10).to_string())
 # print(df.columns)
 # print(df.dtypes)
 # print(df.isnull().sum())
@@ -58,6 +59,7 @@ data_path = r'C:\Users\FM_pc\Desktop\E-commerce_dataset'
 
 users = pd.read_csv(data_path + r'\users.csv')
 
+# print(users.head(10).to_string())
 # print(users.columns)
 # print(users.dtypes)
 # print(users.isnull().sum())
@@ -105,6 +107,7 @@ users = pd.read_csv(data_path + r'\users.csv')
 
 products = pd.read_csv(data_path + r'\products.csv')
 
+# print(products.head(10).to_string())
 # print(products.columns)
 # print(products.dtypes)
 # print(products.isnull().sum())
@@ -139,6 +142,7 @@ products = pd.read_csv(data_path + r'\products.csv')
 
 orders = pd.read_csv(data_path + r'\orders.csv')
 
+# print(orders.head(10).to_string())
 # print(orders.columns)
 # print(orders.dtypes)
 # print(orders.isnull().sum())
@@ -167,6 +171,7 @@ orders = pd.read_csv(data_path + r'\orders.csv')
 
 order_items = pd.read_csv(data_path + r'\order_items.csv')
 
+# print(order_items.head(10).to_string())
 # print(order_items.columns)
 # print(order_items.dtypes)
 # print(order_items.isnull().sum())
@@ -191,6 +196,7 @@ order_items = pd.read_csv(data_path + r'\order_items.csv')
 
 reviews = pd.read_csv(data_path + r'\reviews.csv')
 
+# print(reviews.head(10).to_string())
 # print(reviews.columns)
 # print(reviews.dtypes)
 # print(reviews.isnull().sum())
@@ -203,11 +209,11 @@ reviews = pd.read_csv(data_path + r'\reviews.csv')
 # print(reviews['user_id'].isin(users['user_id']).value_counts())
 # print(reviews['order_id'].isin(orders['order_id']).value_counts())
 
-print(reviews['rating'].value_counts().sort_index())
+# print(reviews['rating'].value_counts().sort_index())
 
-print(reviews['review_text'].str.strip().eq('').sum())
+# print(reviews['review_text'].str.strip().eq('').sum())
 
-review_date = pd.to_datetime(reviews['review_date'], errors='coerce')
-print(review_date.isnull().sum())
-print(review_date.min())
-print(review_date.max())
+# review_date = pd.to_datetime(reviews['review_date'], errors='coerce')
+# print(review_date.isnull().sum())
+# print(review_date.min())
+# print(review_date.max())
