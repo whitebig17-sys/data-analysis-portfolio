@@ -85,6 +85,8 @@ analysis_data = order_items[
 # 查看最終分析資料
 # =========================
 
-print(analysis_data.head())
-print(analysis_data.shape)
-print(analysis_data.dtypes)
+# print(analysis_data.head())
+# print(analysis_data.shape)
+# print(analysis_data.dtypes)
+
+analysis_data.to_csv(data_path+r'\analysis_data.csv',index=False)
